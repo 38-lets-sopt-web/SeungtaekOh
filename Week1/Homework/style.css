@@ -110,6 +110,9 @@ li a {
   flex: 1;
   overflow: hidden;
 }
+section {
+  scroll-margin-top: 80px;
+}
 
 h2 {
   color: #1f2a44;
