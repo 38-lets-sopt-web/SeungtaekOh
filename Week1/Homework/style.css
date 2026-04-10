@@ -60,7 +60,6 @@ nav {
   width: 20%;
   display: flex;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 ul {
