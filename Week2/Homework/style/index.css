@@ -1,3 +1,4 @@
 @import "./header.css";
-@import "./body.css";
+@import "./common.css";
 @import "./searchFilter.css";
+@import "./table.css";

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/index.css" />
     <script type="module" src="./data.js"></script>
+    <script type="module" src="./expenses.js"></script>
     <title>돈을 아껴쓰자!</title>
   </head>
   <body>
@@ -25,27 +26,69 @@
           </div>
           <div class="filter-item item2">
             <h4>유형</h4>
-            <button type="button" class="filter-field filter-dropdown">
-              <img src="./svg/arrow_down.svg" />
-            </button>
+            <select class="filter-field">
+              <option value="all">전체</option>
+              <option value="income">수입</option>
+              <option value="expense">지출</option>
+            </select>
           </div>
           <div class="filter-item item3">
             <h4>카테고리</h4>
-            <button type="button" class="filter-field filter-dropdown">
-              <img src="./svg/arrow_down.svg" />
-            </button>
+            <select class="filter-field">
+              <option value="all">전체</option>
+              <option value="식비">식비</option>
+              <option value="월급">월급</option>
+              <option value="문화">문화</option>
+              <option value="교통">교통</option>
+              <option value="기타">기타</option>
+              <option value="생활">생활</option>
+            </select>
           </div>
           <div class="filter-item item4">
             <h4>결제수단</h4>
-            <button type="button" class="filter-field filter-dropdown">
-              <img src="./svg/arrow_down.svg" />
-            </button>
+            <select class="filter-field">
+              <option value="all">전체</option>
+              <option value="신용카드">신용카드</option>
+              <option value="현금">현금</option>
+              <option value="체크카드">체크카드</option>
+              <option value="기타">기타</option>
+            </select>
           </div>
-          <button type="button" class="filter-button item5">적용</button>
-          <button type="button" class="filter-button item6">초기화</button>
+          <button type="button" class="btn btn-filter item5">적용</button>
+          <button type="button" class="btn btn-filter item6">초기화</button>
         </div>
       </section>
-      <section class="table"></section>
+      <section class="table">
+        <header class="table-header">
+          <select class="sort-dropdown">
+            <option value="all">날짜 내림차순</option>
+            <option value="income">날짜 오름차순</option>
+          </select>
+          <div>
+            <button class="btn btn-delete">선택 삭제</button>
+            <button class="btn btn-add">추가</button>
+          </div>
+        </header>
+        <table>
+          <thead>
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th>제목</th>
+              <th>금액</th>
+              <th>날짜</th>
+              <th>카테고리</th>
+              <th>결제수단</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="2">total</th>
+              <th class="total-amount" colspan="4"></th>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
     </main>
   </body>
 </html>

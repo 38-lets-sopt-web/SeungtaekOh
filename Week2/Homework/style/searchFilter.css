@@ -29,14 +29,7 @@
   padding: 0px 10px;
 }
 
-.filter-dropdown {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  background-color: white;
-  cursor: pointer;
-}
-.filter-dropdown > img {
+.dropdown > img {
   width: 20px;
   height: 20px;
 }
@@ -67,10 +60,6 @@
   grid-area: item6;
 }
 
-.filter-button {
+.btn-filter {
   height: 42px;
-  color: white;
-  background-color: black;
-  border: none;
-  border-radius: 8px;
 }
