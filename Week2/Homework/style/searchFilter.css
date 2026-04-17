@@ -21,7 +21,7 @@
   margin: 0;
 }
 
-.filter-input {
+.filter-field {
   flex: 1;
   height: 100%;
   border: 1px solid #ccc;
@@ -29,6 +29,17 @@
   padding: 0px 10px;
 }
 
+.filter-dropdown {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+.filter-dropdown > img {
+  width: 20px;
+  height: 20px;
+}
 .filter-item {
   height: 40px;
   display: flex;
