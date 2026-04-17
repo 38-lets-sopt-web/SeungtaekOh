@@ -22,11 +22,14 @@
         <div class="grid-container">
           <div class="filter-item item1">
             <h4>제목</h4>
-            <input class="filter-field" placeholder="내용을 입력하세요" />
+            <input
+              class="filter-field title-filter-input"
+              placeholder="내용을 입력하세요"
+            />
           </div>
           <div class="filter-item item2">
             <h4>유형</h4>
-            <select class="filter-field">
+            <select class="filter-field type-dropdown">
               <option value="all">전체</option>
               <option value="income">수입</option>
               <option value="expense">지출</option>
@@ -34,7 +37,7 @@
           </div>
           <div class="filter-item item3">
             <h4>카테고리</h4>
-            <select class="filter-field">
+            <select class="filter-field category-dropdown">
               <option value="all">전체</option>
               <option value="식비">식비</option>
               <option value="월급">월급</option>
@@ -46,7 +49,7 @@
           </div>
           <div class="filter-item item4">
             <h4>결제수단</h4>
-            <select class="filter-field">
+            <select class="filter-field payment-dropdown">
               <option value="all">전체</option>
               <option value="신용카드">신용카드</option>
               <option value="현금">현금</option>
@@ -61,8 +64,8 @@
       <section class="table">
         <header class="table-header">
           <select class="sort-dropdown">
-            <option value="all">날짜 내림차순</option>
-            <option value="income">날짜 오름차순</option>
+            <option value="asc">날짜 내림차순</option>
+            <option value="desc">날짜 오름차순</option>
           </select>
           <div>
             <button class="btn btn-delete">선택 삭제</button>
