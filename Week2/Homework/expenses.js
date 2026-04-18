@@ -7,6 +7,8 @@ const typeFilterSelect = document.querySelector(".type-dropdown");
 const categoryFilterSelect = document.querySelector(".category-dropdown");
 const paymentFilterSelect = document.querySelector(".payment-dropdown");
 const sortFilterSelect = document.querySelector(".sort-dropdown");
+const deleteButton = document.querySelector(".btn-delete");
+const allCheckbox = document.querySelector(".all-checkbox");
 
 function getExpenseData() {
   return JSON.parse(localStorage.getItem("expenseData")) || [];
@@ -63,6 +65,27 @@ function sortByDate(data, order) {
   return sortedData;
 }
 
+function deleteItem() {
+  const data = getExpenseData();
+  const rowcheckbox = document.querySelectorAll(".row-checkbox");
+  const deleteList = [];
+  rowcheckbox.forEach((checkbox) => {
+    if (checkbox.checked === true) {
+      deleteList.push(Number(checkbox.value));
+    }
+  });
+  const newData = data.filter((item) => !deleteList.includes(item.id));
+  localStorage.setItem("expenseData", JSON.stringify(newData));
+  allCheckbox.checked = false;
+  applyFilters();
+}
+function allChecked() {
+  const rowcheckbox = document.querySelectorAll(".row-checkbox");
+  rowcheckbox.forEach((checkbox) => {
+    checkbox.checked = allCheckbox.checked;
+  });
+}
+
 function renderTable(data) {
   if (data.length === 0) {
     tableBody.innerHTML = `
@@ -77,7 +100,7 @@ function renderTable(data) {
     .map(
       (item) => `
         <tr>
-          <td><input type="checkbox" value="${item.id}" /></td>
+          <td><input type="checkbox" class="row-checkbox" value="${item.id}" /></td>
           <td>${item.title}</td>
           <td class="${item.amount > 0 ? "amount-plus" : "amount-minus"}">
             ${item.amount > 0 ? "+" : ""}${item.amount.toLocaleString()}
@@ -138,6 +161,8 @@ function bindEvents() {
   applyButton.addEventListener("click", applyFilters);
   resetButton.addEventListener("click", resetFilters);
   sortFilterSelect.addEventListener("change", applyFilters);
+  deleteButton.addEventListener("click", deleteItem);
+  allCheckbox.addEventListener("change", allChecked);
 }
 
 function init() {
