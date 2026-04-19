@@ -153,7 +153,7 @@ function createItem() {
 
 function openDetail(item) {
   detailTitleValue.textContent = item.title;
-  detailAmountValue.textContent = item.amount.toLocaleString();
+  detailAmountValue.textContent = item.amount;
   detailDateValue.textContent = item.date;
   detailCategoryValue.textContent = item.category;
   detailPaymentValue.textContent = item.payment;
