@@ -9,6 +9,22 @@ const paymentFilterSelect = document.querySelector(".payment-dropdown");
 const sortFilterSelect = document.querySelector(".sort-dropdown");
 const deleteButton = document.querySelector(".btn-delete");
 const allCheckbox = document.querySelector(".all-checkbox");
+const createModalOverlay = document.querySelector(".create-modal-overlay");
+const addButton = document.querySelector(".btn-add");
+const closeButtons = document.querySelectorAll(".btn-close");
+const modalTitleInput = document.querySelector(".modal-title-input");
+const modalTypeSelect = document.querySelector(".modal-type-select");
+const modalAmountInput = document.querySelector(".modal-amount-input");
+const modalDateInput = document.querySelector(".modal-date-input");
+const modalCategorySelect = document.querySelector(".modal-category-select");
+const modalPaymentSelect = document.querySelector(".modal-payment-select");
+const createButton = document.querySelector(".btn-create");
+const detailModalOverlay = document.querySelector(".detail-modal-overlay");
+const detailTitleValue = document.querySelector(".detail-title-value");
+const detailAmountValue = document.querySelector(".detail-amount-value");
+const detailDateValue = document.querySelector(".detail-date-value");
+const detailCategoryValue = document.querySelector(".detail-category-value");
+const detailPaymentValue = document.querySelector(".detail-payment-value");
 
 function getExpenseData() {
   return JSON.parse(localStorage.getItem("expenseData")) || [];
@@ -85,6 +101,81 @@ function allChecked() {
     checkbox.checked = allCheckbox.checked;
   });
 }
+function openModal() {
+  createModalOverlay.classList.remove("hidden");
+}
+
+function closeModal() {
+  createModalOverlay.classList.add("hidden");
+  detailModalOverlay.classList.add("hidden");
+}
+function handleOverlayClick(event) {
+  if (
+    event.target === createModalOverlay ||
+    event.target === detailModalOverlay
+  ) {
+    event.target.classList.add("hidden");
+  }
+}
+
+function createItem() {
+  const data = getExpenseData();
+
+  if (
+    !modalTitleInput.value ||
+    !modalAmountInput.value ||
+    !modalDateInput.value ||
+    modalTypeSelect.value === "all" ||
+    modalCategorySelect.value === "all" ||
+    modalPaymentSelect.value === "all"
+  ) {
+    alert("모든 값을 입력해주세요");
+    return;
+  }
+
+  const newItem = {
+    id: data.length > 0 ? data[data.length - 1].id + 1 : 1,
+    title: modalTitleInput.value,
+    date: modalDateInput.value,
+    category: modalCategorySelect.value,
+    payment: modalPaymentSelect.value,
+    amount:
+      modalTypeSelect.value === "income"
+        ? Number(modalAmountInput.value)
+        : -Number(modalAmountInput.value),
+  };
+
+  data.push(newItem);
+  localStorage.setItem("expenseData", JSON.stringify(data));
+  applyFilters();
+  closeModal();
+}
+
+function openDetail(item) {
+  detailTitleValue.textContent = item.title;
+  detailAmountValue.textContent = item.amount.toLocaleString();
+  detailDateValue.textContent = item.date;
+  detailCategoryValue.textContent = item.category;
+  detailPaymentValue.textContent = item.payment;
+
+  detailModalOverlay.classList.remove("hidden");
+}
+
+function handleTableClick(event) {
+  if (!event.target.classList.contains("item-title")) {
+    return;
+  }
+
+  const itemId = Number(event.target.dataset.id);
+  const data = getExpenseData();
+  const clickedItem = data.find((item) => item.id === itemId);
+
+  if (!clickedItem) {
+    return;
+  }
+
+  openDetail(clickedItem);
+}
 
 function renderTable(data) {
   if (data.length === 0) {
@@ -101,7 +192,7 @@ function renderTable(data) {
       (item) => `
         <tr>
           <td><input type="checkbox" class="row-checkbox" value="${item.id}" /></td>
-          <td>${item.title}</td>
+          <td class="item-title" data-id="${item.id}">${item.title}</td>
           <td class="${item.amount > 0 ? "amount-plus" : "amount-minus"}">
             ${item.amount > 0 ? "+" : ""}${item.amount.toLocaleString()}
           </td>
@@ -159,10 +250,22 @@ function resetFilters() {
 
 function bindEvents() {
   applyButton.addEventListener("click", applyFilters);
+
   resetButton.addEventListener("click", resetFilters);
   sortFilterSelect.addEventListener("change", applyFilters);
+
   deleteButton.addEventListener("click", deleteItem);
   allCheckbox.addEventListener("change", allChecked);
+
+  addButton.addEventListener("click", openModal);
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+  createModalOverlay.addEventListener("click", handleOverlayClick);
+  createButton.addEventListener("click", createItem);
+
+  tableBody.addEventListener("click", handleTableClick);
+  detailModalOverlay.addEventListener("click", handleOverlayClick);
 }
 
 function init() {

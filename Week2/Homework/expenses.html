@@ -20,24 +20,24 @@
       <section class="search-filter">
         <h3 class="filter-title">검색 필터</h3>
         <div class="grid-container">
-          <div class="filter-item item1">
+          <div class="form-field item1">
             <h4>제목</h4>
             <input
-              class="filter-field title-filter-input"
+              class="form-select title-filter-input"
               placeholder="내용을 입력하세요"
             />
           </div>
-          <div class="filter-item item2">
+          <div class="form-field item2">
             <h4>유형</h4>
-            <select class="filter-field type-dropdown">
+            <select class="form-select type-dropdown">
               <option value="all">전체</option>
               <option value="income">수입</option>
               <option value="expense">지출</option>
             </select>
           </div>
-          <div class="filter-item item3">
+          <div class="form-field item3">
             <h4>카테고리</h4>
-            <select class="filter-field category-dropdown">
+            <select class="form-select category-dropdown">
               <option value="all">전체</option>
               <option value="식비">식비</option>
               <option value="월급">월급</option>
@@ -47,9 +47,9 @@
               <option value="생활">생활</option>
             </select>
           </div>
-          <div class="filter-item item4">
+          <div class="form-field item4">
             <h4>결제수단</h4>
-            <select class="filter-field payment-dropdown">
+            <select class="form-select payment-dropdown">
               <option value="all">전체</option>
               <option value="신용카드">신용카드</option>
               <option value="현금">현금</option>
@@ -64,8 +64,8 @@
       <section class="table">
         <header class="table-header">
           <select class="sort-dropdown">
-            <option value="asc">날짜 내림차순</option>
-            <option value="desc">날짜 오름차순</option>
+            <option value="desc">날짜 내림차순</option>
+            <option value="asc">날짜 오름차순</option>
           </select>
           <div>
             <button class="btn btn-delete">선택 삭제</button>
@@ -75,7 +75,7 @@
         <table>
           <thead>
             <tr>
-              <th><input type="checkbox" /></th>
+              <th><input class="all-checkbox" type="checkbox" /></th>
               <th>제목</th>
               <th>금액</th>
               <th>날짜</th>
@@ -93,5 +93,94 @@
         </table>
       </section>
     </main>
+    <div class="modal-overlay create-modal-overlay hidden">
+      <section class="modal create-modal">
+        <header class="modal-header">
+          <h3 class="modal-select-title">내역 추가</h3>
+          <button type="button" class="btn-close">✕</button>
+        </header>
+        <div class="modal-grid">
+          <div class="modal-field modal-item1">
+            <h4 class="modal-select-title">제목</h4>
+            <input
+              class="form-select modal-title-input"
+              placeholder="제목을 입력하세요"
+            />
+          </div>
+          <div class="modal-field modal-item2">
+            <h4 class="modal-select-title">유형</h4>
+            <select class="form-select modal-type-select">
+              <option value="all">전체</option>
+              <option value="income">수입</option>
+              <option value="expense">지출</option>
+            </select>
+          </div>
+          <div class="modal-field modal-item3">
+            <h4 class="modal-select-title">금액(숫자만)</h4>
+            <input
+              class="form-select modal-amount-input"
+              placeholder="금액을 입력하세요"
+            />
+          </div>
+          <div class="modal-field modal-item4">
+            <h4 class="modal-select-title">날짜</h4>
+            <input type="date" class="form-select modal-date-input" />
+          </div>
+          <div class="modal-field modal-item5">
+            <h4 class="modal-select-title">카테고리</h4>
+            <select class="form-select modal-category-select">
+              <option value="all">전체</option>
+              <option value="식비">식비</option>
+              <option value="월급">월급</option>
+              <option value="문화">문화</option>
+              <option value="교통">교통</option>
+              <option value="기타">기타</option>
+              <option value="생활">생활</option>
+            </select>
+          </div>
+          <div class="modal-field modal-item6">
+            <h4 class="modal-select-title">결제수단</h4>
+            <select class="form-select modal-payment-select">
+              <option value="all">전체</option>
+              <option value="신용카드">신용카드</option>
+              <option value="현금">현금</option>
+              <option value="체크카드">체크카드</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="btn btn-create">추가</button>
+      </section>
+    </div>
+    <div class="modal-overlay detail-modal-overlay hidden">
+      <section class="modal detail-modal">
+        <header class="modal-header">
+          <h3 class="modal-select-title">항목 상세</h3>
+          <button type="button" class="btn-close">✕</button>
+        </header>
+        <div class="detail-list">
+          <div class="detail-row">
+            <span class="detail-label">제목:</span>
+            <span class="detail-value detail-title-value"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">금액:</span>
+            <span class="detail-value detail-amount-value"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">날짜:</span>
+            <span class="detail-value detail-date-value"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">카테고리:</span>
+            <span class="detail-value detail-category-value"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">결제수단:</span>
+            <span class="detail-value detail-payment-value"></span>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
