@@ -1,0 +1,91 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 400px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.hidden {
+  display: none;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "modal-item1 modal-item1"
+    "modal-item2 modal-item3"
+    "modal-item4 modal-item4"
+    "modal-item5 modal-item6";
+  gap: 10px;
+}
+.modal-item1 {
+  grid-area: modal-item1;
+}
+.modal-item2 {
+  grid-area: modal-item2;
+}
+.modal-item3 {
+  grid-area: modal-item3;
+}
+.modal-item4 {
+  grid-area: modal-item4;
+}
+.modal-item5 {
+  grid-area: modal-item5;
+}
+.modal-item6 {
+  grid-area: modal-item6;
+}
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+.btn-close {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.modal-select-title {
+  margin: 0;
+}
+.btn-create {
+  width: 60px;
+  height: 30px;
+}
+
+.detail-list {
+  display: flex;
+  flex-direction: column;
+}
+.detail-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+.detail-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #6f8098;
+}
