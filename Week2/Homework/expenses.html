@@ -21,14 +21,15 @@
         <h3 class="filter-title">검색 필터</h3>
         <div class="grid-container">
           <div class="form-field item1">
-            <h4>제목</h4>
+            <label>제목</label>
             <input
+              type="text"
               class="form-select title-filter-input"
               placeholder="내용을 입력하세요"
             />
           </div>
           <div class="form-field item2">
-            <h4>유형</h4>
+            <label>유형</label>
             <select class="form-select type-dropdown">
               <option value="all">전체</option>
               <option value="income">수입</option>
@@ -36,7 +37,7 @@
             </select>
           </div>
           <div class="form-field item3">
-            <h4>카테고리</h4>
+            <label>카테고리</label>
             <select class="form-select category-dropdown">
               <option value="all">전체</option>
               <option value="식비">식비</option>
@@ -48,7 +49,7 @@
             </select>
           </div>
           <div class="form-field item4">
-            <h4>결제수단</h4>
+            <label>결제수단</label>
             <select class="form-select payment-dropdown">
               <option value="all">전체</option>
               <option value="신용카드">신용카드</option>
@@ -93,6 +94,7 @@
         </table>
       </section>
     </main>
+    <!-- 추가 모달 -->
     <div class="modal-overlay create-modal-overlay hidden">
       <section class="modal create-modal">
         <header class="modal-header">
@@ -118,6 +120,7 @@
           <div class="modal-field modal-item3">
             <h4 class="modal-select-title">금액(숫자만)</h4>
             <input
+              type="number"
               class="form-select modal-amount-input"
               placeholder="금액을 입력하세요"
             />
@@ -152,6 +155,7 @@
         <button type="button" class="btn btn-create">추가</button>
       </section>
     </div>
+    <!-- 디테일 모달 -->
     <div class="modal-overlay detail-modal-overlay hidden">
       <section class="modal detail-modal">
         <header class="modal-header">

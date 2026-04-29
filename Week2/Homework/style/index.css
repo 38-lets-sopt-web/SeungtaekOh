@@ -1,5 +1,5 @@
 @import "./header.css";
-@import "./common.css";
+@import "./shared.css";
 @import "./searchFilter.css";
 @import "./table.css";
 @import "./modal.css";

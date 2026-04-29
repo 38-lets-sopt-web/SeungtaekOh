@@ -31,28 +31,26 @@ function getExpenseData() {
 }
 
 function filterByType(data, type) {
-  if (type === "income") {
-    return data.filter((item) => item.amount > 0);
+  switch (type) {
+    case "income":
+      return data.filter((item) => item.amount > 0);
+    case "expense":
+      return data.filter((item) => item.amount < 0);
+    default:
+      return data;
   }
-  if (type === "expense") {
-    return data.filter((item) => item.amount < 0);
-  }
-  return data;
 }
 
 function filterByCategory(data, categoryValue) {
-  if (categoryValue === "all") {
-    return data;
-  }
-  return data.filter((item) => item.category === categoryValue);
+  return categoryValue === "all"
+    ? data
+    : data.filter((item) => item.category === categoryValue);
 }
 
 function filterByPayment(data, paymentValue) {
-  if (paymentValue === "all") {
-    return data;
-  }
-
-  return data.filter((item) => item.payment === paymentValue);
+  return paymentValue === "all"
+    ? data
+    : data.filter((item) => item.payment === paymentValue);
 }
 
 function filterByTitle(data, keyword) {
@@ -68,36 +66,27 @@ function filterByTitle(data, keyword) {
 }
 
 function sortByDate(data, order) {
-  const sortedData = [...data];
-
-  if (order === "asc") {
-    sortedData.sort((a, b) => new Date(a.date) - new Date(b.date));
-  }
-
-  if (order === "desc") {
-    sortedData.sort((a, b) => new Date(b.date) - new Date(a.date));
-  }
-
-  return sortedData;
+  return [...data].sort((a, b) =>
+    order === "asc"
+      ? a.date.localeCompare(b.date)
+      : b.date.localeCompare(a.date),
+  );
 }
 
 function deleteItem() {
-  const data = getExpenseData();
-  const rowcheckbox = document.querySelectorAll(".row-checkbox");
-  const deleteList = [];
-  rowcheckbox.forEach((checkbox) => {
-    if (checkbox.checked === true) {
-      deleteList.push(Number(checkbox.value));
-    }
-  });
-  const newData = data.filter((item) => !deleteList.includes(item.id));
+  const deleteList = [...document.querySelectorAll(".row-checkbox")]
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => Number(checkbox.value));
+  const newData = getExpenseData().filter(
+    (item) => !deleteList.includes(item.id),
+  );
   localStorage.setItem("expenseData", JSON.stringify(newData));
   allCheckbox.checked = false;
   applyFilters();
 }
+
 function allChecked() {
-  const rowcheckbox = document.querySelectorAll(".row-checkbox");
-  rowcheckbox.forEach((checkbox) => {
+  document.querySelectorAll(".row-checkbox").forEach((checkbox) => {
     checkbox.checked = allCheckbox.checked;
   });
 }
@@ -211,12 +200,11 @@ function renderTotalAmount(data) {
   const total = data.reduce((sum, item) => sum + item.amount, 0);
 
   totalAmountElement.textContent = `${total > 0 ? "+" : ""}${total.toLocaleString()}`;
-  if (total > 0) {
-    totalAmountElement.className = "total-amount amount-plus";
-  } else if (total < 0) {
-    totalAmountElement.className = "total-amount amount-minus";
-  } else {
-    totalAmountElement.className = "total-amount";
+  totalAmountElement.className = "total-amount";
+  if (total !== 0) {
+    totalAmountElement.classList.add(
+      total > 0 ? "amount-plus" : "amount-minus",
+    );
   }
 }
 
