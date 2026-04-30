@@ -10,31 +10,16 @@ body {
 }
 
 body {
-  background-color: rgb(var(--bg-main));
+  background-color: rgb(var(--blue-100));
   color: rgb(var(--black));
 }
 
-:root {
-  /* background */
-  --bg-main: var(--blue-100);
-  --bg-section: var(--blue-200);
-  --bg-board: var(--blue-300);
-  --bg-hole: var(--blue-400);
-
-  /* primary */
-  --color-primary: var(--blue-500);
-
-  /* 상태 */
-  --color-positive: var(--green);
-  --color-negative: var(--red);
-}
-
 @theme {
-  --color-main: rgb(var(--bg-main));
-  --color-section: rgb(var(--bg-section));
-  --color-board: rgb(var(--bg-board));
-  --color-hole: rgb(var(--bg-hole));
-  --color-primary: rgb(var(--color-primary));
-  --color-positive: rgb(var(--color-positive));
-  --color-negative: rgb(var(--color-negative));
+  --color-main: rgb(var(--blue-100));
+  --color-section: rgb(var(--blue-200));
+  --color-board: rgb(var(--blue-300));
+  --color-hole: rgb(var(--blue-400));
+  --color-primary: rgb(var(--blue-500));
+  --color-positive: rgb(var(--green));
+  --color-negative: rgb(var(--red));
 }
