@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import GameSection from "./sections/GameSection";
+import GameSection from "./sections/gameSection/GameSection";
 function App() {
   const [currentTab, setCurrentTab] = useState("game");
   return (
