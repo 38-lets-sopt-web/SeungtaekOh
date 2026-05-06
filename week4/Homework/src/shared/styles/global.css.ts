@@ -2,10 +2,12 @@ import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle("*", {
   boxSizing: "border-box",
-  borderRadius: "8px",
 });
 
 globalStyle("html, body, #root", {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   margin: 0,
   minHeight: "100%",
 });
