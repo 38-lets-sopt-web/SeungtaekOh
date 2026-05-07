@@ -16,6 +16,9 @@ export const button = style({
   borderRadius: vars.radius.sm,
   width: "100%",
   padding: "10px",
+  ":hover": {
+    backgroundColor: vars.color.primaryHover,
+  },
 });
 
 export const linkGuide = style({

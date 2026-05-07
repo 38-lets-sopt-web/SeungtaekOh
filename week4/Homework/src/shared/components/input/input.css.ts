@@ -14,19 +14,18 @@ export const inputWrapper = style({
   justifyContent: "center",
   border: "1px solid #C9D4E2",
   borderRadius: vars.radius.sm,
+  overflow: "hidden",
 });
 
 export const input = style({
   flex: 1,
   border: "none",
-  borderRadius: `${vars.radius.sm} 0 0 ${vars.radius.sm}`,
   outline: "none",
   padding: "10px",
 });
 
 export const passwordButton = style({
   backgroundColor: "white",
-  borderRadius: `0 ${vars.radius.sm} ${vars.radius.sm} 0`,
   border: "none",
   color: vars.color.gray,
 });
