@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 
 import MyInfoPage from "../../pages/myPage/myInfoPage";
-import SigninPage from "../../pages/signinPage";
+import SigninPage from "../../pages/signinPage/signinPage";
 import SignupPage from "../../pages/singUpPage/signupPage";
 import UserDetailPage from "../../pages/myPage/userDetailPage";
 import UserListPage from "../../pages/myPage/userListPage";

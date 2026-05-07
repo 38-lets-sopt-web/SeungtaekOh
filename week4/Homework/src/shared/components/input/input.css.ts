@@ -5,7 +5,7 @@ import { vars } from "../../styles/theme.css";
 export const container = style({
   display: "flex",
   flexDirection: "column",
-  gap: "6px",
+  gap: "8px",
   width: "100%",
 });
 
@@ -17,16 +17,18 @@ export const inputWrapper = style({
 });
 
 export const input = style({
+  flex: 1,
   border: "none",
   borderRadius: `${vars.radius.sm} 0 0 ${vars.radius.sm}`,
   outline: "none",
+  padding: "10px",
 });
 
 export const passwordButton = style({
   backgroundColor: "white",
   borderRadius: `0 ${vars.radius.sm} ${vars.radius.sm} 0`,
   border: "none",
-  color: "gray",
+  color: vars.color.gray,
 });
 
 export const errorMessage = style({
