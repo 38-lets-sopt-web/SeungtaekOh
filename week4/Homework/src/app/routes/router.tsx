@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 
 import MyInfoPage from "../../pages/myPage/myInfoPage";
 import SigninPage from "../../pages/signinPage/signinPage";
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/mypage/users/:userId",
     element: <UserDetailPage />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/signin" replace />,
   },
 ]);
 

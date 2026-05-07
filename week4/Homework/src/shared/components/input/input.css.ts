@@ -12,7 +12,7 @@ export const container = style({
 export const inputWrapper = style({
   display: "flex",
   justifyContent: "center",
-  border: "1px solid #C9D4E2",
+  border: `1px solid ${vars.color.gray}`,
   borderRadius: vars.radius.sm,
   overflow: "hidden",
 });
@@ -31,5 +31,7 @@ export const passwordButton = style({
 });
 
 export const errorMessage = style({
+  margin: 0,
+  fontSize: "small",
   color: vars.color.danger,
 });

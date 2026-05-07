@@ -17,7 +17,7 @@ const button = ({ text, guideText, linkText, ...buttonProps }: ButtonProps) => {
       </button>
       <div className={styles.linkGuide}>
         {guideText}
-        <Link className={styles.link} to={"/singin"}>
+        <Link className={styles.link} to={"/signup"}>
           {linkText}
         </Link>
       </div>
