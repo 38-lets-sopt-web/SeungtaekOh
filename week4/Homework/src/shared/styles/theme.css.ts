@@ -7,6 +7,7 @@ export const vars = createGlobalTheme(":root", {
     primary: "#4CC3E0",
     primaryHover: "#2FB1D2",
     danger: "#EF4444",
+    gray: "#8A96A3",
     white: "#FFFFFF",
     black: "#000000",
   },

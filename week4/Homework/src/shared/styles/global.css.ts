@@ -6,6 +6,7 @@ globalStyle("*", {
 
 globalStyle("html, body, #root", {
   display: "flex",
+  flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   margin: 0,
