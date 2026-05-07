@@ -7,6 +7,7 @@ export const container = style({
   flexDirection: "column",
   alignItems: "center",
   gap: "16px",
+  width: "100%",
 });
 
 export const button = style({
