@@ -1,10 +1,10 @@
 import { createBrowserRouter, Navigate } from "react-router";
 
-import MyInfoPage from "../../pages/myPage/myInfoPage";
+import MyInfoPage from "../../pages/myPage/myInfoPage/myInfoPage";
 import SigninPage from "../../pages/signinPage/signinPage";
 import SignupPage from "../../pages/singUpPage/signupPage";
 import UserDetailPage from "../../pages/myPage/userDetailPage";
-import UserListPage from "../../pages/myPage/userListPage";
+import UserListPage from "../../pages/myPage/userListPage/userListPage";
 
 const router = createBrowserRouter([
   {

@@ -6,16 +6,30 @@ interface InfoCardProps {
   name?: string;
   email?: string;
   age?: number;
+  nameFirst?: boolean;
 }
 
-const InfoCard = ({ loginId, part, name, email, age }: InfoCardProps) => {
+const InfoCard = ({
+  loginId,
+  part,
+  name,
+  email,
+  age,
+  nameFirst = false,
+}: InfoCardProps) => {
   return (
     <div className={styles.container}>
+      {nameFirst && name && (
+        <div className={styles.row}>
+          <span className={styles.label}>이름</span>
+          <span className={styles.value}>{name}</span>
+        </div>
+      )}
       <div className={styles.row}>
         <span className={styles.label}>아이디</span>
         <span className={styles.value}>{loginId}</span>
       </div>
-      {name && (
+      {!nameFirst && name && (
         <div className={styles.row}>
           <span className={styles.label}>이름</span>
           <span className={styles.value}>{name}</span>

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import * as styles from "./card.css";
 
 interface CardProps {
-  userId?: number;
+  userId: number;
   name: string;
   part: string;
 }
