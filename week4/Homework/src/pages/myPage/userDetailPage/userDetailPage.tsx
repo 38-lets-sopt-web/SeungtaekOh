@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
-import { getUser } from "../../shared/api/user";
-import Header from "../../shared/components/header/header";
-import InfoCard from "../../shared/components/infoCard/infoCard";
-import type { UserDetail } from "./userListPage/userListPage.utils";
+import { getUser } from "../../../shared/api/user";
+import Header from "../../../shared/components/header/header";
+import InfoCard from "../../../shared/components/infoCard/infoCard";
+import type { UserDetail } from "../userListPage/userListPage.utils";
 import * as styles from "./userDetailPage.css";
 
 const UserDetailPage = () => {
