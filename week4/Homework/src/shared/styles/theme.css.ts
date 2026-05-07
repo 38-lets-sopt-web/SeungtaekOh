@@ -11,15 +11,14 @@ export const vars = createGlobalTheme(":root", {
     white: "#FFFFFF",
     black: "#000000",
   },
-  space: {
-    xs: "0.4rem",
-    sm: "0.8rem",
-    md: "1.2rem",
-    lg: "1.6rem",
-    xl: "2.4rem",
+  fontWeight: {
+    regular: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
   },
   radius: {
-    sm: "4px",
-    md: "8px",
+    sm: "8px",
+    md: "12px",
   },
 });
