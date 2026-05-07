@@ -19,6 +19,10 @@ export const button = style({
   ":hover": {
     backgroundColor: vars.color.primaryHover,
   },
+  ":disabled": {
+    backgroundColor: vars.color.gray,
+    cursor: "not-allowed",
+  },
 });
 
 export const linkGuide = style({

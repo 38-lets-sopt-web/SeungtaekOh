@@ -9,10 +9,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   linkText?: string;
 }
 
-const button = ({ text, guideText, linkText }: ButtonProps) => {
+const button = ({ text, guideText, linkText, ...buttonProps }: ButtonProps) => {
   return (
     <div className={styles.container}>
-      <button className={styles.button}>{text}</button>
+      <button className={styles.button} {...buttonProps}>
+        {text}
+      </button>
       <div className={styles.linkGuide}>
         {guideText}
         <Link className={styles.link} to={"/singin"}>

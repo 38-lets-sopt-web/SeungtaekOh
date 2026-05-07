@@ -1,5 +1,5 @@
-const userListPage = () => {
+const UserListPage = () => {
   return <div>userListPage</div>;
 };
 
-export default userListPage;
+export default UserListPage;
