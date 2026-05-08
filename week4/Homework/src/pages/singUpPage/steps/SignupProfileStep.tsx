@@ -98,6 +98,8 @@ const SignupProfileStep = ({
 
       <Button
         text="회원가입"
+        guideText="이미 계정이 있나요?"
+        linkText="로그인"
         disabled={isSubmitButtonDisabled}
         onClick={onSubmit}
       />

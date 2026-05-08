@@ -29,7 +29,13 @@ const SignupIdStep = ({
         onChange={(e) => onChangeLoginId(e.currentTarget.value)}
         errorMessage={idErrorMessage}
       />
-      <Button text="다음" disabled={isNextButtonDisabled} onClick={onNext} />
+      <Button
+        text="다음"
+        guideText="이미 계정이 있나요?"
+        linkText="로그인"
+        disabled={isNextButtonDisabled}
+        onClick={onNext}
+      />
     </>
   );
 };
