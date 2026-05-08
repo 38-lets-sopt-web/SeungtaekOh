@@ -1,0 +1,44 @@
+import { createBrowserRouter, Navigate } from "react-router";
+
+import MyInfoPage from "../../pages/myPage/myInfoPage/myInfoPage";
+import SigninPage from "../../pages/signinPage/signinPage";
+import SignupPage from "../../pages/singUpPage/signupPage";
+import UserDetailPage from "../../pages/myPage/userDetailPage/userDetailPage";
+import UserListPage from "../../pages/myPage/userListPage/userListPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <SigninPage />,
+  },
+  {
+    path: "/signin",
+    element: <SigninPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignupPage />,
+  },
+  {
+    path: "/myInfoPage",
+    element: <MyInfoPage />,
+  },
+  {
+    path: "/mypage",
+    element: <MyInfoPage />,
+  },
+  {
+    path: "/mypage/users",
+    element: <UserListPage />,
+  },
+  {
+    path: "/mypage/users/:userId",
+    element: <UserDetailPage />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/signin" replace />,
+  },
+]);
+
+export default router;
