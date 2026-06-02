@@ -1,0 +1,15 @@
+.top-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #243447;
+  z-index: 50;
+  color: white;
+}
+
+.btn-refresh {
+  border: none;
+  background-color: #1f2a3a;
+  cursor: pointer;
+  font-size: large;
+}
